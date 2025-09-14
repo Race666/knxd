@@ -330,6 +330,7 @@ LinkConnect::setup()
   x_may_fail = cfg->value("may-fail",false);
   x_max_retries = cfg->value("max-retries",-1);
   x_retry_delay = cfg->value("retry-delay",1.);
+  keep_hop_count = ! cfg->value("hop-decrement",true);
   return true;
 }
 
@@ -436,6 +437,7 @@ LinkConnect::stopped(bool err)
 void
 LinkConnect::recv_L_Data (LDataPtr l)
 {
+  l->keep_hop_count |= keep_hop_count;
   static_cast<Router&>(router).recv_L_Data(std::move(l), *this);
 }
 

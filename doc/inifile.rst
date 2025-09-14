@@ -392,6 +392,15 @@ These options apply to all drivers and servers.
 
   *Note*: Starting up knxd still fails if there is a configuration error.
 
+* hop-decrement (bool)
+
+  Packets from this interface are forwarded without decrementing their hop
+  count.
+
+  You need to set this option to ``false`` on a Tunnel interface if you
+  want to use it with the current ETS (≥ 6.3). Otherwise this option should
+  be ``true``, for resiliency against broken bus topology (i.e. loops).
+
 dummy
 -----
 

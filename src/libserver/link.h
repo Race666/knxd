@@ -519,6 +519,7 @@ private:
   void retry_timer_cb(ev::timer &w, int revents);
 
   bool addr_local = true;
+  bool keep_hop_count = true;
 };
 
 /** connection for a server's client */

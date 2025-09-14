@@ -1051,7 +1051,11 @@ Router::trigger_cb (ev::async &, int)
           TRACEPRINTF (t, 3, "Hopcount zero: %s", l1->Decode (t));
           goto next;
         }
-      if (l1->hop_count < 7 || !force_broadcast)
+      if (l1->keep_hop_count)
+        {
+          // This abomination courtesy of ETS 6.2 or thereabouts
+        }
+      else if (l1->hop_count < 7 || !force_broadcast)
         l1->hop_count--;
 
       if (l1->repeated)

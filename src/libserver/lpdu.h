@@ -115,6 +115,9 @@ public:
   bool valid_length = true;
   uint8_t hop_count = 0x06;
 
+  /** ETS 6.2 *sigh* */
+  bool keep_hop_count = false;
+
   /** Source interface. Only valid within the router. Opaque pointer
    * because irrelevant. */
   void *source = nullptr;
