@@ -207,7 +207,7 @@ Run these steps as normal user, not as root.
 
 On Debian/Ubuntu:
 
-    sudo apt-get install git
+    sudo apt-get install git systemd-dev
 
     # get the source code
     git clone -b debian https://github.com/knxd/knxd.git
